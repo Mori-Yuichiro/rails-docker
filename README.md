@@ -1,24 +1,27 @@
-# README
+# 環境構築
+本アプリは次のようにして環境構築を行います。
+- 本アプリのリポジトリからURLを取得する
+- 次のコマンドを実行する
+```
+git clone <本リポジトリのURL>
+```
+- クローンしたディレクトリに移動
+- 次のコマンドを実行してコンテナを起動する
+```
+docker-compose up -d
+```
+- 以下のコマンドでwebコンテナ内に入り、DB作成
+```
+docker-compose exec web bash
+rails db:create
+rails db:migrate
+exit
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- コンテナを再起動させる
+```
+docker-compose up
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- ブラウザでlocalhost:3000にアクセスする
+- アプリを終了したい場合はCtr+Cを押す
